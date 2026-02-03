@@ -1,691 +1,161 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Anuroop Dasgupta — Protoplanetary disks, high-contrast imaging, interferometry, and young companions." />
-  <meta name="theme-color" content="#0b1220" />
   <title>Anuroop Dasgupta</title>
-
-  <!-- Favicons (optional) -->
-  <!-- <link rel="icon" href="assets/favicon.ico"> -->
-
-  <!-- Typography -->
+  <meta name="description" content="Astronomy & Astrophysics — Protoplanetary disks, high-contrast imaging, interferometry."/>
+  <link rel="icon" href="assets/profile.jpg" />
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    :root{
-      --bg: #0b1220;
-      --panel: rgba(255,255,255,0.06);
-      --panel2: rgba(255,255,255,0.09);
-      --text: rgba(255,255,255,0.90);
-      --muted: rgba(255,255,255,0.65);
-      --faint: rgba(255,255,255,0.45);
-      --line: rgba(255,255,255,0.10);
-      --accent: #6ee7ff;
-      --accent2:#a78bfa;
-      --good:#34d399;
-      --shadow: 0 20px 60px rgba(0,0,0,0.45);
-      --radius: 18px;
-      --max: 1100px;
-    }
-
-    /* Light mode (auto) */
-    @media (prefers-color-scheme: light){
-      :root{
-        --bg:#f6f7fb;
-        --panel: rgba(10,20,40,0.05);
-        --panel2: rgba(10,20,40,0.08);
-        --text: rgba(10,20,40,0.92);
-        --muted: rgba(10,20,40,0.65);
-        --faint: rgba(10,20,40,0.48);
-        --line: rgba(10,20,40,0.12);
-        --shadow: 0 18px 50px rgba(10,20,40,0.12);
-      }
-    }
-
-    *{ box-sizing: border-box; }
-    html{ scroll-behavior: smooth; }
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-      color: var(--text);
-      background: radial-gradient(1200px 600px at 20% 0%, rgba(110,231,255,0.15), transparent 55%),
-                  radial-gradient(1000px 600px at 90% 10%, rgba(167,139,250,0.18), transparent 55%),
-                  radial-gradient(900px 500px at 40% 100%, rgba(52,211,153,0.10), transparent 60%),
-                  var(--bg);
-      line-height: 1.6;
-    }
-
-    a{ color: inherit; text-decoration: none; }
-    a:hover{ opacity: .9; }
-    .container{ width: min(var(--max), calc(100% - 40px)); margin: 0 auto; }
-
-    /* Top nav */
-    .nav{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      background: linear-gradient(to bottom, rgba(0,0,0,0.45), rgba(0,0,0,0.08));
-      border-bottom: 1px solid var(--line);
-    }
-    @media (prefers-color-scheme: light){
-      .nav{ background: rgba(246,247,251,0.75); }
-    }
-    .nav-inner{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:14px;
-      padding: 14px 0;
-    }
-    .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:700;
-      letter-spacing: -0.02em;
-    }
-    .dot{
-      width:10px;height:10px;border-radius:99px;
-      background: linear-gradient(135deg, var(--accent), var(--accent2));
-      box-shadow: 0 0 0 4px rgba(110,231,255,0.10);
-    }
-    .menu{
-      display:flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      justify-content: flex-end;
-    }
-    .pill{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      padding: 8px 12px;
-      border-radius: 999px;
-      font-weight: 600;
-      color: var(--muted);
-      transition: transform .12s ease, background .12s ease;
-    }
-    .pill:hover{
-      background: rgba(255,255,255,0.07);
-      transform: translateY(-1px);
-      color: var(--text);
-    }
-    @media (max-width: 720px){
-      .nav-inner{ align-items:flex-start; }
-      .menu{ justify-content:flex-start; }
-    }
-
-    /* Hero */
-    .hero{
-      padding: 48px 0 18px;
-    }
-    .hero-grid{
-      display:grid;
-      grid-template-columns: 1.15fr 0.85fr;
-      gap: 26px;
-      align-items: start;
-    }
-    @media (max-width: 900px){
-      .hero-grid{ grid-template-columns: 1fr; }
-    }
-
-    .card{
-      background: linear-gradient(180deg, var(--panel), transparent 120%);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-card{
-      padding: 26px;
-      overflow:hidden;
-      position: relative;
-    }
-    .glow{
-      position:absolute; inset:-60px -60px auto auto;
-      width: 220px; height: 220px;
-      background: radial-gradient(circle at 30% 30%, rgba(110,231,255,0.35), transparent 55%),
-                  radial-gradient(circle at 70% 70%, rgba(167,139,250,0.35), transparent 55%);
-      filter: blur(10px);
-      transform: rotate(18deg);
-      pointer-events:none;
-      opacity: .9;
-    }
-
-    h1{
-      margin: 0 0 8px;
-      font-size: clamp(30px, 4.2vw, 46px);
-      line-height: 1.12;
-      letter-spacing: -0.03em;
-    }
-    .subtitle{
-      margin: 0 0 14px;
-      color: var(--muted);
-      font-weight: 600;
-    }
-    .badges{
-      display:flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin: 16px 0 18px;
-    }
-    .badge{
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      padding: 8px 10px;
-      border-radius: 999px;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 13px;
-    }
-    .badge strong{ color: var(--text); font-weight: 700; }
-
-    .cta{
-      display:flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      margin-top: 18px;
-    }
-    .btn{
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      gap: 10px;
-      padding: 11px 14px;
-      border-radius: 12px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.05);
-      font-weight: 700;
-      color: var(--text);
-      cursor:pointer;
-      transition: transform .12s ease, background .12s ease, border-color .12s ease;
-    }
-    .btn:hover{
-      transform: translateY(-1px);
-      background: rgba(255,255,255,0.08);
-      border-color: rgba(255,255,255,0.18);
-    }
-    .btn.primary{
-      border-color: rgba(110,231,255,0.35);
-      background: linear-gradient(135deg, rgba(110,231,255,0.18), rgba(167,139,250,0.14));
-    }
-    .btn .icon{
-      width: 18px; height: 18px; display:inline-block;
-    }
-
-    /* Profile card */
-    .profile{
-      padding: 22px;
-    }
-    .profile-top{
-      display:flex;
-      gap: 16px;
-      align-items:center;
-    }
-    .avatar{
-      width: 68px; height: 68px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(110,231,255,0.25), rgba(167,139,250,0.22));
-      border: 1px solid var(--line);
-      display:grid;
-      place-items:center;
-      overflow:hidden;
-      flex: 0 0 auto;
-    }
-    .avatar img{
-      width:100%; height:100%;
-      object-fit: cover;
-      display:block;
-    }
-    .profile h3{
-      margin: 0 0 2px;
-      letter-spacing: -0.02em;
-    }
-    .profile .mini{
-      margin: 0;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .kv{
-      margin-top: 14px;
-      display:grid;
-      gap: 8px;
-    }
-    .row{
-      display:flex;
-      justify-content: space-between;
-      gap: 10px;
-      border-top: 1px solid var(--line);
-      padding-top: 10px;
-      color: var(--muted);
-      font-weight: 600;
-      font-size: 14px;
-    }
-    .row span:last-child{
-      color: var(--text);
-      font-weight: 700;
-      text-align:right;
-    }
-
-    /* Sections */
-    section{
-      padding: 24px 0;
-    }
-    .section-title{
-      display:flex;
-      align-items:flex-end;
-      justify-content: space-between;
-      gap: 16px;
-      margin: 10px 0 14px;
-    }
-    .section-title h2{
-      margin: 0;
-      font-size: 22px;
-      letter-spacing: -0.02em;
-    }
-    .section-title p{
-      margin: 0;
-      color: var(--muted);
-      font-weight: 600;
-      max-width: 560px;
-      font-size: 14px;
-    }
-
-    .grid{
-      display:grid;
-      grid-template-columns: repeat(12, 1fr);
-      gap: 16px;
-    }
-    .col-6{ grid-column: span 6; }
-    .col-4{ grid-column: span 4; }
-    .col-8{ grid-column: span 8; }
-    .col-12{ grid-column: span 12; }
-    @media (max-width: 900px){
-      .col-6,.col-4,.col-8{ grid-column: span 12; }
-    }
-
-    .panel{
-      padding: 18px;
-      background: linear-gradient(180deg, var(--panel2), transparent 140%);
-      border: 1px solid var(--line);
-      border-radius: var(--radius);
-    }
-    .panel h3{
-      margin: 0 0 8px;
-      letter-spacing: -0.02em;
-      font-size: 16px;
-    }
-    .panel p{
-      margin: 0;
-      color: var(--muted);
-      font-weight: 550;
-      font-size: 14px;
-    }
-    .list{
-      margin: 10px 0 0;
-      padding-left: 18px;
-      color: var(--muted);
-      font-weight: 550;
-      font-size: 14px;
-    }
-    .list li{ margin: 8px 0; }
-
-    .pub{
-      display:flex;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 14px;
-      border: 1px solid var(--line);
-      background: rgba(255,255,255,0.04);
-      margin-top: 10px;
-    }
-    .pub strong{ display:block; color: var(--text); }
-    .pub span{ color: var(--muted); font-weight: 600; font-size: 13px; }
-    .tag{
-      align-self: start;
-      font-size: 12px;
-      font-weight: 800;
-      padding: 6px 10px;
-      border-radius: 999px;
-      border: 1px solid var(--line);
-      background: rgba(52,211,153,0.10);
-      color: var(--good);
-      white-space: nowrap;
-    }
-
-    footer{
-      border-top: 1px solid var(--line);
-      padding: 22px 0 32px;
-      color: var(--faint);
-      font-weight: 600;
-      font-size: 13px;
-    }
-    .foot{
-      display:flex;
-      justify-content: space-between;
-      gap: 14px;
-      flex-wrap: wrap;
-      align-items:center;
-    }
-
-    /* Small helper */
-    .muted{ color: var(--muted); }
-    .mono{ font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <!-- NAV -->
-  <header class="nav">
-    <div class="container nav-inner">
-      <div class="brand">
-        <span class="dot"></span>
-        <span>Anuroop Dasgupta</span>
-      </div>
-      <nav class="menu" aria-label="Primary">
-        <a class="pill" href="#about">About</a>
-        <a class="pill" href="#research">Research</a>
-        <a class="pill" href="#publications">Publications</a>
-        <a class="pill" href="#talks">Talks</a>
-        <a class="pill" href="#contact">Contact</a>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">Anuroop Dasgupta</a>
+      <nav class="nav">
+        <a class="navlink active" href="index.html">About</a>
+        <a class="navlink" href="research.html">Research</a>
+        <a class="navlink" href="publications.html">Publications</a>
+        <a class="navlink" href="software.html">Software</a>
+        <a class="navlink" href="gallery.html">Gallery</a>
       </nav>
+      <button class="themebtn" id="themeBtn" aria-label="Toggle theme" title="Toggle theme">
+        <span class="themeicon">◐</span>
+      </button>
     </div>
   </header>
 
-  <!-- HERO -->
-  <main class="container">
-    <section class="hero" id="top">
-      <div class="hero-grid">
-        <div class="card hero-card">
-          <div class="glow"></div>
-          <h1>PhD Candidate in Astronomy &amp; Astrophysics</h1>
-          <p class="subtitle">
-            Protoplanetary disks (outer → inner), eruptive young stars, and substellar companions —
-            combining high-resolution imaging, interferometry, and (sub)mm observations.
+  <main id="main">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-left">
+          <div class="kicker">Astronomy & Astrophysics</div>
+          <h1 class="title">Protoplanetary disks, eruptive young stars, and interferometric inner-disk structure.</h1>
+
+          <p class="lead">
+            I’m a PhD candidate working on the physical and structural evolution of protoplanetary disks and the
+            detection/characterization of young substellar companions using high-resolution imaging and optical/IR interferometry.
           </p>
 
-          <div class="badges">
-            <div class="badge"><strong>Current:</strong> ESO Studentship (2025–2027)</div>
-            <div class="badge"><strong>Focus:</strong> Disk structure &amp; evolution</div>
-            <div class="badge"><strong>Tools:</strong> ALMA • ERIS/vAPP • VLTI/GRAVITY • CHARA</div>
+          <div class="badge-row">
+            <span class="badge">ALMA</span>
+            <span class="badge">VLT/ERIS</span>
+            <span class="badge">VLTI/GRAVITY</span>
+            <span class="badge">CHARA</span>
+            <span class="badge">VISIR</span>
           </div>
 
-          <div class="cta">
-            <!-- Replace links with your real ones -->
-            <a class="btn primary" href="#publications" title="Jump to publications">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M7 7h10M7 12h10M7 17h7" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-              </svg>
-              Publications
-            </a>
-            <a class="btn" href="assets/Anuroop_Dasgupta_CV.pdf" target="_blank" rel="noopener">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M12 3v10m0 0l4-4m-4 4l-4-4M5 21h14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-              </svg>
-              Download CV
-            </a>
-            <a class="btn" href="#contact">
-              <svg class="icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                <path d="M4 8l8 5 8-5v10H4V8z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-                <path d="M4 8l8 5 8-5-8-5-8 5z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
-              </svg>
-              Contact
-            </a>
+          <div class="cta-row">
+            <a class="btn primary" href="assets/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+            <a class="btn" href="mailto:anuroopdasgupta1999@gmail.com">Email</a>
+            <!-- Optional: add your ADS/Scholar links -->
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">NASA ADS</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noopener">Google Scholar</a>
           </div>
 
-          <p class="muted" style="margin-top:14px;font-weight:650;font-size:13px;">
-            Tip: Put your PDF at <span class="mono">assets/Anuroop_Dasgupta_CV.pdf</span> so the button works.
-          </p>
+          <div class="meta">
+            <div><strong>Affiliation:</strong> Universidad Diego Portales (UDP), Santiago, Chile</div>
+            <div><strong>Also:</strong> ESO Studentship (European Southern Observatory), Santiago, Chile</div>
+          </div>
         </div>
 
-        <aside class="card profile">
-          <div class="profile-top">
-            <div class="avatar" title="Add your photo at assets/profile.jpg">
-              <!-- If you add assets/profile.jpg, uncomment the img line below -->
-              <!-- <img src="assets/profile.jpg" alt="Portrait of Anuroop Dasgupta"> -->
-              <span style="font-weight:900;color:var(--text);opacity:.85;">AD</span>
-            </div>
-            <div>
-              <h3 style="margin:0;">Anuroop Dasgupta</h3>
-              <p class="mini">Santiago, Chile • Astronomy &amp; Astrophysics</p>
-              <p class="mini">Research: disks • companions • interferometry</p>
+        <div class="hero-right">
+          <div class="portrait-card">
+            <img class="portrait" src="assets/profile.jpg" alt="Portrait photo" />
+            <div class="portrait-info">
+              <div class="portrait-name">Anuroop Dasgupta</div>
+              <div class="portrait-role">PhD Candidate · Planet formation</div>
+              <div class="portrait-links">
+                <a href="mailto:anuroopdasgupta1999@gmail.com">anuroopdasgupta1999@gmail.com</a>
+                <span class="dot">•</span>
+                <span>Santiago, Chile</span>
+              </div>
             </div>
           </div>
 
-          <div class="kv">
-            <div class="row"><span>Affiliation</span><span>ESO / Universidad Diego Portales</span></div>
-            <div class="row"><span>Methods</span><span>HCI • (sub)mm • VLTI/CHARA</span></div>
-            <div class="row"><span>Keywords</span><span>FUors • GI • inner disk structure</span></div>
+          <div class="card quick">
+            <h3>Current focus</h3>
+            <ul>
+              <li>Disk size distribution & multiplicity (ODISEA; ALMA Band 8)</li>
+              <li>Embedded substellar companions in FU Ori systems (ERIS L′)</li>
+              <li>Inner-disk morphology with VLTI/GRAVITY & CHARA</li>
+              <li>Mid-IR dust mineralogy during outbursts (VISIR; 10 μm)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head">
+          <h2>Highlights</h2>
+          <p class="muted">A quick snapshot — details in the Research & Publications tabs.</p>
+        </div>
+
+        <div class="grid3">
+          <div class="card">
+            <h3>Outer disk evolution</h3>
+            <p>ALMA continuum sizes, demographics, and multiplicity trends across young regions.</p>
+            <a class="textlink" href="research.html#outer">Read more →</a>
           </div>
 
-          <div style="margin-top:14px; display:flex; gap:10px; flex-wrap:wrap;">
-            <!-- Replace with your actual links -->
-            <a class="pill" href="https://ui.adsabs.harvard.edu/" target="_blank" rel="noopener">NASA ADS</a>
-            <a class="pill" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
-            <a class="pill" href="https://github.com/Anuroop1999" target="_blank" rel="noopener">GitHub</a>
+          <div class="card">
+            <h3>Eruptive systems</h3>
+            <p>High-contrast L′ imaging + multi-wavelength context to probe early fragmentation and embedded companions.</p>
+            <a class="textlink" href="research.html#fuor">Read more →</a>
           </div>
-        </aside>
-      </div>
-    </section>
 
-    <!-- ABOUT -->
-    <section id="about">
-      <div class="section-title">
-        <h2>About</h2>
-        <p>Short, high-signal summary that a hiring committee can scan in 15 seconds.</p>
-      </div>
-
-      <div class="grid">
-        <div class="panel col-8">
-          <h3>Research snapshot</h3>
-          <p>
-            I study how disks evolve from the outer dust reservoir to the inner AU, and how this evolution
-            connects to planet formation and episodic accretion. I combine multi-wavelength observations
-            with instrument-adaptable pipelines and statistical modeling.
-          </p>
-          <ul class="list">
-            <li><strong>Disk structure &amp; evolution:</strong> ALMA size distributions, multiplicity, and evolutionary stage diagnostics.</li>
-            <li><strong>Substellar companions in embedded systems:</strong> ERIS/vAPP high-contrast imaging + contrast-to-mass interpretation.</li>
-            <li><strong>Inner disk morphology &amp; kinematics:</strong> VLTI/GRAVITY + CHARA constraints on sub-AU structure.</li>
-          </ul>
-        </div>
-
-        <div class="panel col-4">
-          <h3>Currently</h3>
-          <p>
-            ESO Studentship (2025–2027). Working on interferometric modeling and multi-technique follow-up
-            of young systems with complex disk substructures.
-          </p>
-          <div style="height:10px"></div>
-          <h3>Open to</h3>
-          <p>Collaborations on eruptive YSOs, inner disk imaging, and combined ALMA+HCI+interferometry constraints.</p>
+          <div class="card">
+            <h3>Inner disk structure</h3>
+            <p>Interferometry-driven constraints on rims, asymmetries, binaries, and temperature-gradient models.</p>
+            <a class="textlink" href="research.html#inner">Read more →</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- RESEARCH -->
-    <section id="research">
-      <div class="section-title">
-        <h2>Research</h2>
-        <p>Organize by themes (like the example site) instead of a long paragraph.</p>
-      </div>
-
-      <div class="grid">
-        <div class="panel col-6">
-          <h3>1) Outer disks: demographics &amp; evolution</h3>
-          <p>ALMA continuum sizes, substructure statistics, and links to age/multiplicity/environment.</p>
-          <ul class="list">
-            <li>Size distribution measurements &amp; uncertainty propagation</li>
-            <li>Comparisons across regions / evolutionary classes</li>
-            <li>Interpreting trends with drift / fragmentation / pressure traps</li>
-          </ul>
+    <section class="section alt">
+      <div class="container">
+        <div class="section-head">
+          <h2>Contact</h2>
+          <p class="muted">If you’re interested in collaborations, visits, or proposals, email is best.</p>
         </div>
 
-        <div class="panel col-6">
-          <h3>2) Eruptive stars &amp; embedded companions</h3>
-          <p>FUor outbursts, gravitational instability, and identifying deeply embedded substellar objects.</p>
-          <ul class="list">
-            <li>ERIS/vAPP reduction + ADI/RDI style workflows</li>
-            <li>Contrast curves → mass limits with model caveats</li>
-            <li>Multi-epoch astrometry strategy (comoving tests)</li>
-          </ul>
-        </div>
-
-        <div class="panel col-6">
-          <h3>3) Inner disks: interferometric constraints</h3>
-          <p>Sub-AU morphology, temperature gradients, and asymmetries using VLTI/CHARA observables.</p>
-          <ul class="list">
-            <li>Geometric &amp; temperature-gradient models</li>
-            <li>Closure phase / differential phase interpretation</li>
-            <li>Binary-driven clearing / inner rim structure</li>
-          </ul>
-        </div>
-
-        <div class="panel col-6">
-          <h3>4) Mid-IR mineralogy (planned/ongoing)</h3>
-          <p>Crystalline silicates and thermal processing during outbursts; the 10 μm feature as a tracer.</p>
-          <ul class="list">
-            <li>VISIR spectra + telluric correction strategy</li>
-            <li>Feature decomposition &amp; crystallinity metrics</li>
-            <li>Connecting outburst physics to dust processing</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PUBLICATIONS -->
-    <section id="publications">
-      <div class="section-title">
-        <h2>Publications</h2>
-        <p>Keep this brutally scannable: title + venue + year, with a “PDF / ADS” link.</p>
-      </div>
-
-      <div class="grid">
-        <div class="panel col-12">
-          <!-- Replace these with your real items/links -->
-          <div class="pub">
-            <div>
-              <strong>Size Distributions of Protoplanetary Disks in Ophiuchus (ODISEA)</strong>
-              <span>ApJL • 2025 • DOI: 10.3847/2041-8213/adb03c</span>
+        <div class="contact-card">
+          <div class="contact-item">
+            <div class="label">Email</div>
+            <a class="value" href="mailto:anuroopdasgupta1999@gmail.com">anuroopdasgupta1999@gmail.com</a>
+          </div>
+          <div class="contact-item">
+            <div class="label">Location</div>
+            <div class="value">Santiago, Chile</div>
+          </div>
+          <div class="contact-item">
+            <div class="label">Links</div>
+            <div class="value">
+              <a href="#" target="_blank" rel="noopener">ADS</a>
+              <span class="dot">•</span>
+              <a href="#" target="_blank" rel="noopener">Scholar</a>
+              <span class="dot">•</span>
+              <a href="#" target="_blank" rel="noopener">GitHub</a>
             </div>
-            <div class="tag">Published</div>
           </div>
-
-          <div class="pub">
-            <div>
-              <strong>A deeply embedded substellar companion candidate in V960 Mon with ERIS</strong>
-              <span>ApJL • 2025 • DOI: 10.3847/2041-8213/ade996</span>
-            </div>
-            <div class="tag">Published</div>
-          </div>
-
-          <div class="pub">
-            <div>
-              <strong>Inner Disk Structures Around Herbig Stars: A Statistical Approach</strong>
-              <span>In prep • VLTI/GRAVITY + CHARA</span>
-            </div>
-            <div class="tag" style="background:rgba(110,231,255,0.10);color:var(--accent);">In prep</div>
-          </div>
-
-          <p class="muted" style="margin-top:12px;font-weight:650;">
-            Add links: ADS bibcode, arXiv, PDF, and data/software when possible.
-          </p>
         </div>
+
+        <footer class="footer">
+          <div>© <span id="year"></span> Anuroop Dasgupta</div>
+          <div class="muted">Built with GitHub Pages</div>
+        </footer>
       </div>
     </section>
-
-    <!-- TALKS -->
-    <section id="talks">
-      <div class="section-title">
-        <h2>Talks &amp; Outreach</h2>
-        <p>Optional but powerful: shows visibility and leadership.</p>
-      </div>
-
-      <div class="grid">
-        <div class="panel col-6">
-          <h3>Invited / Colloquia</h3>
-          <ul class="list">
-            <li>IIT Bombay — Planet formation from outer to inner disks (2025/2026)</li>
-            <li>TIFR &amp; NCRA — Disk size distributions (Dec 2024)</li>
-          </ul>
-        </div>
-        <div class="panel col-6">
-          <h3>Community &amp; mentoring</h3>
-          <ul class="list">
-            <li>Conference contributions: posters/talks (Spirit of Lyot, etc.)</li>
-            <li>Outreach: schools/colleges during India visit (planned)</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section id="contact">
-      <div class="section-title">
-        <h2>Contact</h2>
-        <p>Make it easy to reach you. Add links for Scholar/ADS/GitHub.</p>
-      </div>
-
-      <div class="grid">
-        <div class="panel col-8">
-          <h3>Email</h3>
-          <p>
-            <a class="btn primary" href="mailto:anuroopdasgupta1999@gmail.com">anuroopdasgupta1999@gmail.com</a>
-          </p>
-          <div style="height:12px"></div>
-          <h3>Profiles</h3>
-          <p class="muted">
-            Add your real links: ADS Library, ORCID, Google Scholar, GitHub, Twitter/Bluesky (optional).
-          </p>
-          <div style="margin-top:10px; display:flex; gap:10px; flex-wrap:wrap;">
-            <a class="pill" href="https://ui.adsabs.harvard.edu/" target="_blank" rel="noopener">NASA ADS</a>
-            <a class="pill" href="https://scholar.google.com/" target="_blank" rel="noopener">Google Scholar</a>
-            <a class="pill" href="https://orcid.org/" target="_blank" rel="noopener">ORCID</a>
-          </div>
-        </div>
-
-        <div class="panel col-4">
-          <h3>Quick edits</h3>
-          <ul class="list">
-            <li>Add photo: <span class="mono">assets/profile.jpg</span></li>
-            <li>Add CV PDF: <span class="mono">assets/Anuroop_Dasgupta_CV.pdf</span></li>
-            <li>Update pubs with links</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <footer>
-      <div class="container foot">
-        <div>© <span id="year"></span> Anuroop Dasgupta</div>
-        <div class="muted">Built with a single <span class="mono">index.html</span> on GitHub Pages</div>
-      </div>
-    </footer>
   </main>
-
-  <script>
-    // Footer year
-    document.getElementById("year").textContent = new Date().getFullYear();
-
-    // Slightly nicer anchor jumps (optional)
-    // If you prefer pure default behavior, you can delete this.
-    document.querySelectorAll('a[href^="#"]').forEach(a => {
-      a.addEventListener("click", (e) => {
-        const id = a.getAttribute("href");
-        if (!id || id === "#") return;
-        const el = document.querySelector(id);
-        if (!el) return;
-        e.preventDefault();
-        el.scrollIntoView({behavior:"smooth", block:"start"});
-        history.pushState(null, "", id);
-      });
-    });
-  </script>
 </body>
 </html>
