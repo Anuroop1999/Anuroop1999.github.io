@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Research · Anuroop Dasgupta</title>
+  <link rel="stylesheet" href="assets/style.css" />
+  <script defer src="assets/script.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html">Anuroop Dasgupta</a>
+      <nav class="nav">
+        <a class="navlink" href="index.html">About</a>
+        <a class="navlink active" href="research.html">Research</a>
+        <a class="navlink" href="publications.html">Publications</a>
+        <a class="navlink" href="software.html">Software</a>
+        <a class="navlink" href="gallery.html">Gallery</a>
+      </nav>
+      <button class="themebtn" id="themeBtn" aria-label="Toggle theme"><span class="themeicon">◐</span></button>
+    </div>
+  </header>
+
+  <main class="page">
+    <div class="container">
+      <div class="page-head">
+        <h1>Research</h1>
+        <p class="muted">
+          I work across outer-to-inner disk scales, connecting demographics (ALMA) to embedded companions (HCI)
+          and sub-au structure (interferometry).
+        </p>
+      </div>
+
+      <div class="toc card">
+        <strong>On this page</strong>
+        <div class="toc-links">
+          <a href="#outer">Outer disks (ALMA/ODISEA)</a>
+          <a href="#fuor">Eruptive stars & embedded companions (ERIS)</a>
+          <a href="#inner">Inner disks (VLTI/CHARA)</a>
+          <a href="#methods">Methods & pipelines</a>
+        </div>
+      </div>
+
+      <section id="outer" class="block">
+        <h2>Outer disks (ALMA/ODISEA)</h2>
+        <div class="card">
+          <p>
+            Using high-frequency ALMA continuum imaging, I study disk size distributions and their dependence on
+            evolutionary class, multiplicity, and environment. The goal is to connect observed morphology to
+            dust evolution (drift, growth, traps) and disk clearing pathways.
+          </p>
+          <ul class="bullets">
+            <li>Uniform size measurements across large samples</li>
+            <li>Demographics vs multiplicity and evolutionary stage</li>
+            <li>Links to dust evolution/planet formation models</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="fuor" class="block">
+        <h2>Eruptive stars & embedded companions (ERIS)</h2>
+        <div class="card">
+          <p>
+            I use L′-band high-contrast imaging to search for deeply embedded companions in FU Ori-type systems,
+            where gravitational instability may trigger fragmentation. Multi-wavelength context (e.g., ALMA clumps,
+            scattered-light structures) is used to interpret candidate detections.
+          </p>
+          <ul class="bullets">
+            <li>Second-epoch astrometry to test co-motion</li>
+            <li>Photometric calibration + contrast curves</li>
+            <li>Connecting clumps/spirals to fragmentation scenarios</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="inner" class="block">
+        <h2>Inner disks (VLTI/GRAVITY & CHARA)</h2>
+        <div class="card">
+          <p>
+            I analyze optical/IR interferometric data to constrain inner-disk geometry, asymmetries, temperature gradients,
+            and the role of close companions in clearing inner cavities and shaping disk morphology.
+          </p>
+          <ul class="bullets">
+            <li>Temperature-gradient & multi-component geometric models</li>
+            <li>Closure-phase signatures of asymmetry/binarity</li>
+            <li>Statistical study of Herbig inner disk structures</li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="methods" class="block">
+        <h2>Methods & pipelines</h2>
+        <div class="grid2">
+          <div class="card">
+            <h3>High-contrast imaging</h3>
+            <p>ADI/RDI workflows, PSF subtraction, injection-recovery, contrast-to-mass conversions, astrometry.</p>
+          </div>
+          <div class="card">
+            <h3>Interferometry</h3>
+            <p>Visibility/closure-phase modeling, multi-component fits, photometric consistency checks, uncertainty propagation.</p>
+          </div>
+          <div class="card">
+            <h3>Millimeter imaging</h3>
+            <p>Uniform measurement pipelines for sizes, fluxes, beam effects, and sample-level statistics.</p>
+          </div>
+          <div class="card">
+            <h3>Reproducibility</h3>
+            <p>Instrument-adaptable pipelines, structured outputs, and versioned analysis notebooks/scripts.</p>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer slim">
+        <div>© <span id="year"></span> Anuroop Dasgupta</div>
+      </footer>
+    </div>
+  </main>
+</body>
+</html>
 
