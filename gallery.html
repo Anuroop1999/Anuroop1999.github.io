@@ -3,15 +3,34 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Gallery · Anuroop Dasgupta</title>
+  <title>Gallery &middot; Anuroop Dasgupta</title>
+  <meta name="description" content="Photographs from observing runs, telescopes, and conferences: ELT, Magellan, Las Campanas, Caltech, Kyoto, and the Astronomical Society of India meeting." />
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    .masonry{columns:3;column-gap:16px}
+    @media (max-width:820px){.masonry{columns:2}}
+    @media (max-width:520px){.masonry{columns:1}}
+    .shot{
+      break-inside:avoid;margin:0 0 16px;
+      border:1px solid var(--line);border-radius:var(--radius);
+      overflow:hidden;background:var(--panel);
+      transition:border-color .2s,transform .2s;
+    }
+    .shot:hover{border-color:rgba(242,184,90,.4);transform:translateY(-2px)}
+    .shot img{width:100%;height:auto;display:block}
+    .shot .cap{padding:13px 15px}
+    .shot .cap .t{font-family:var(--serif);font-weight:600;font-size:1rem;color:var(--ink);line-height:1.25}
+    .shot .cap .d{color:var(--ink-mute);font-size:.82rem;margin-top:4px;line-height:1.35}
+  </style>
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html">Anuroop Dasgupta</a>
@@ -22,28 +41,98 @@
         <a class="navlink" href="software.html">Software</a>
         <a class="navlink active" href="gallery.html">Gallery</a>
       </nav>
-      <button class="themebtn" id="themeBtn" aria-label="Toggle theme"><span class="themeicon">◐</span></button>
+      <button class="themebtn" id="themeBtn" aria-label="Toggle light and dark theme">
+        <span class="themeicon">&#9680;</span>
+      </button>
     </div>
   </header>
 
-  <main class="page">
+  <main id="main" class="page">
     <div class="container">
-      <div class="page-head">
-        <h1>Gallery</h1>
-        <p class="muted">Figures, observing runs, talks, and science visuals.</p>
-      </div>
 
-      <div class="card">
+      <div class="page-head">
+        <div class="section-eyebrow">Gallery</div>
+        <h1>Telescopes, observing runs, and conferences</h1>
         <p class="muted">
-          Add images into <code>assets/gallery/</code> and list them here. (We can also add an automatic gallery later.)
+          A few moments from the road: nights at the telescope, visits to the observatories that
+          make this work possible, and conferences where I have shared it.
         </p>
       </div>
 
+      <div class="masonry">
+
+        <figure class="shot">
+          <img src="assets/GALLERY/ELT.jpeg" alt="At the Extremely Large Telescope construction site" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">Extremely Large Telescope</div>
+            <div class="d">At the ELT dome under construction, Cerro Armazones, Chile.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="assets/GALLERY/MAGELLAN_TELECOPE.jpeg" alt="Inside the dome of a Magellan Telescope" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">Magellan Telescope</div>
+            <div class="d">Inside the dome at Las Campanas Observatory, Chile.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="assets/GALLERY/SPIRIT_OF_LYOT6_CALTECH.jpeg" alt="V960 Mon poster at Spirit of Lyot 6, Caltech" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">Spirit of Lyot 6, Caltech</div>
+            <div class="d">Presenting the V960 Mon gravitational-instability poster, Pasadena.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="assets/GALLERY/OBSERVING_RUN_LASCAMPAMPANAS.jpeg" alt="At the control room during an observing run" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">Observing run</div>
+            <div class="d">At the control room during a run at Las Campanas Observatory.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="assets/GALLERY/UDP_JOURNADAS.jpeg" alt="Talk on V960 Mon at Universidad Diego Portales" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">Universidad Diego Portales</div>
+            <div class="d">Talk on V960 Mon and gravitational instability, Santiago.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="assets/GALLERY/KYOTO_CPD_CONDERENCE.jpeg" alt="Presenting the ODISEA disk survey in Kyoto" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">Circumplanetary Disks III, Kyoto</div>
+            <div class="d">Presenting the ODISEA disk-size survey, Japan.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="assets/GALLERY/ASI_2025.jpeg" alt="At the Astronomical Society of India 2025 meeting" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">ASI 2025</div>
+            <div class="d">43rd meeting of the Astronomical Society of India, NIT Rourkela.</div>
+          </figcaption>
+        </figure>
+
+        <figure class="shot">
+          <img src="assets/GALLERY/GRIFFITHS_OBS.jpeg" alt="At Griffith Observatory, Los Angeles" loading="lazy" />
+          <figcaption class="cap">
+            <div class="t">Griffith Observatory</div>
+            <div class="d">A visit to Griffith Observatory, Los Angeles.</div>
+          </figcaption>
+        </figure>
+
+      </div>
+
       <footer class="footer slim">
-        <div>© <span id="year"></span> Anuroop Dasgupta</div>
+        <div>&copy; <span id="year"></span> Anuroop Dasgupta &middot; Santiago, Chile</div>
+        <div><a href="mailto:Anuroop.Dasgupta@eso.org">Anuroop.Dasgupta@eso.org</a></div>
       </footer>
+
     </div>
   </main>
 </body>
 </html>
-
