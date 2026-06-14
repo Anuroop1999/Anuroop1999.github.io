@@ -270,13 +270,16 @@ a:focus-visible,button:focus-visible{
 
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
 
 /* numbered research areas */
-.numcard{position:relative;padding-top:26px}
+.numcard{position:relative;padding-top:22px}
 .numcard .idx{
-  font-family:var(--mono);font-size:.74rem;color:var(--star);
-  letter-spacing:.1em;position:absolute;top:18px;left:22px;
+  display:block;
+  font-family:var(--mono);font-size:.7rem;color:var(--star);
+  letter-spacing:.12em;margin-bottom:14px;
 }
+.numcard h3{margin-top:0}
 
 /* ============================================================
    Stat strip
@@ -408,6 +411,7 @@ a:focus-visible,button:focus-visible{
   .hero-disk{max-width:280px;order:-1}
   .grid3{grid-template-columns:1fr}
   .grid2{grid-template-columns:1fr}
+  .grid4{grid-template-columns:1fr}
   .stats{grid-template-columns:repeat(2,1fr)}
   .pub{grid-template-columns:1fr;gap:8px}
   .pub .yr{padding-top:0}
