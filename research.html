@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Publications &middot; Anuroop Dasgupta</title>
-  <meta name="description" content="Publications by Anuroop Dasgupta, including first-author and contributing-author papers on protoplanetary disks, embedded companions, and FU Orionis outbursts." />
+  <title>Research &middot; Anuroop Dasgupta</title>
+  <meta name="description" content="Research of Anuroop Dasgupta: protoplanetary disk demographics with ALMA, embedded companions and FU Orionis outbursts, and sub-au inner-disk structure with optical and infrared interferometry." />
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -20,8 +20,8 @@
       <a class="brand" href="index.html">Anuroop Dasgupta</a>
       <nav class="nav">
         <a class="navlink" href="index.html">About</a>
-        <a class="navlink" href="research.html">Research</a>
-        <a class="navlink active" href="publications.html">Publications</a>
+        <a class="navlink active" href="research.html">Research</a>
+        <a class="navlink" href="publications.html">Publications</a>
         <a class="navlink" href="software.html">Software</a>
         <a class="navlink" href="gallery.html">Gallery</a>
       </nav>
@@ -35,141 +35,226 @@
     <div class="container">
 
       <div class="page-head">
-        <div class="section-eyebrow">Publications</div>
-        <h1>Publications</h1>
+        <div class="section-eyebrow">Research</div>
+        <h1>Building planetary systems, one scale at a time</h1>
         <p class="muted">
-          Six first-author papers and three as a contributing author, on protoplanetary disk
-          demographics, embedded companions, eruptive young stars, and resolved gas-phase
-          metallicity in galaxies. For the complete, always-current list, see NASA ADS or Google
-          Scholar.
+          A planetary system is assembled across an enormous range of scales, from hundreds of au
+          in the outer disk down to a fraction of an au at the inner rim. I follow that whole range
+          with observations, tracing how a disk of gas and dust reorganises itself into rings, gaps,
+          companions, and eventually planets. The work moves from large ALMA surveys of disk
+          demographics, through the eruptive young stars and embedded companions caught in the act
+          of forming, down to the inner au resolved with optical and infrared interferometry. Tying
+          it together is a set of reduction and modeling pipelines I build so the analysis stays
+          uniform and reproducible across very different instruments.
         </p>
         <div class="cta-row" style="margin-top:18px">
-          <a class="btn" href="https://ui.adsabs.harvard.edu/search/q=orcid:0009-0009-8115-8910&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
-          <a class="btn" href="https://scholar.google.com/citations?user=CvVDe3YAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
-          <a class="btn ghost" href="https://orcid.org/0009-0009-8115-8910" target="_blank" rel="noopener">ORCID</a>
+          <a class="btn" href="publications.html">All publications</a>
+          <a class="btn ghost" href="https://ui.adsabs.harvard.edu/search/q=orcid:0009-0009-8115-8910&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
+          <a class="btn ghost" href="https://scholar.google.com/citations?user=CvVDe3YAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
         </div>
       </div>
 
       <div class="toc">
         <strong>On this page</strong>
-        <a href="#first">First author</a>
-        <a href="#inprep">In preparation</a>
-        <a href="#contrib">Contributing author</a>
+        <a href="#outer">Outer disks</a>
+        <a href="#companions">Companions</a>
+        <a href="#fuor">Eruptive stars</a>
+        <a href="#inner">Inner disks</a>
+        <a href="#instruments">Instruments</a>
+        <a href="#methods">Methods &amp; pipelines</a>
       </div>
 
-      <!-- ===================== FIRST AUTHOR ===================== -->
-      <section id="first" class="block">
-        <h2>First author &middot; published</h2>
-        <div class="publist">
-
-          <article class="pub card hover">
-            <div class="yr">2025</div>
-            <div>
-              <div class="pub-title">Characterizing a New Companion Candidate Near V960 Mon</div>
-              <div class="pub-meta"><span class="me">Dasgupta, A.</span>, Weber, P., Maio, F., et al. &middot; <em>ApJL</em>, 2025 &middot; VLT/ERIS</div>
-              <div class="pub-links">
-                <a href="https://doi.org/10.3847/2041-8213/ade996" target="_blank" rel="noopener">DOI &#8599;</a>
-                <a href="https://www.eso.org/public/news/eso2513/" target="_blank" rel="noopener">ESO press release &#8599;</a>
-                <span class="tag">Press</span>
-              </div>
-            </div>
-          </article>
-
-          <article class="pub card hover">
-            <div class="yr">2025</div>
-            <div>
-              <div class="pub-title">Size Distributions of Protoplanetary Disks in the Ophiuchus Molecular Cloud</div>
-              <div class="pub-meta"><span class="me">Dasgupta, A.</span>, Cieza, L. A., Bhowmik, T., et al. &middot; <em>ApJL</em>, 2025 &middot; ALMA</div>
-              <div class="pub-links">
-                <a href="https://doi.org/10.3847/2041-8213/adb03c" target="_blank" rel="noopener">DOI &#8599;</a>
-              </div>
-            </div>
-          </article>
-
+      <!-- ===================== OUTER ===================== -->
+      <section id="outer" class="block">
+        <h2>01 &middot; Outer disks and disk demographics</h2>
+        <div class="card">
+          <p>
+            The outer disk holds most of the solid mass that planets are eventually built from, so
+            its size and structure set the stage for everything that follows. I use high-frequency
+            ALMA continuum imaging to measure how big disks are, how that size depends on
+            evolutionary stage, multiplicity, and environment, and what those trends reveal about
+            how dust drifts, grows, and gets trapped. As part of the ODISEA programme, I produced a
+            uniform set of size measurements for the brightest disks in the Ophiuchus molecular
+            cloud, which let me compare disks across a single, well-defined sample rather than
+            stitching together heterogeneous archival data.
+          </p>
+          <p>
+            The aim is to turn a snapshot of disk sizes into an evolutionary story: which disks are
+            compact because they are young, which are compact because dust has already drifted
+            inward, and how a stellar companion reshapes the disk it orbits. These demographics feed
+            directly into models of dust evolution and planet formation, and they set the target
+            lists for the higher-resolution follow-up I do at other wavelengths.
+          </p>
+          <ul class="bullets">
+            <li>Uniform disk-size measurements across complete, brightness-selected samples.</li>
+            <li>Size as a function of evolutionary class, multiplicity, and environment.</li>
+            <li>Links between observed morphology and dust drift, grain growth, and dust traps.</li>
+            <li>Demographics that connect to the ODISEA evolutionary sequence of disk substructures.</li>
+          </ul>
+          <div class="pub-links" style="margin-top:16px">
+            <a href="https://doi.org/10.3847/2041-8213/adb03c" target="_blank" rel="noopener">Ophiuchus size distributions (ApJL 2025) &#8599;</a>
+            <a href="https://doi.org/10.3847/2041-8213/adcd58" target="_blank" rel="noopener">ODISEA substructure sequence (ApJL 2025) &#8599;</a>
+          </div>
         </div>
       </section>
 
-      <!-- ===================== IN PREP ===================== -->
-      <section id="inprep" class="block">
-        <h2>First author &middot; submitted and in preparation</h2>
-        <div class="publist">
-
-          <article class="pub card">
-            <div class="yr">2026</div>
-            <div>
-              <div class="pub-title">First K-band Interferometric Survey of Previously Unresolved Herbig Ae/Be Stars with VLTI/GRAVITY and CHARA</div>
-              <div class="pub-meta"><span class="me">Dasgupta, A.</span>, Labdon, A. &middot; To be submitted to <em>A&amp;A</em></div>
-              <div class="pub-links"><span class="tag">To be submitted</span></div>
-            </div>
-          </article>
-
-          <article class="pub card">
-            <div class="yr">2026</div>
-            <div>
-              <div class="pub-title">Spatially Resolved Gas-Phase Metallicity Gradients in 382 MaNGA Low-Mass Galaxies: The Role of Concentration, Gas Velocity Dispersion, and Environment</div>
-              <div class="pub-meta"><span class="me">Dasgupta, A.</span>, Roy, N., Samui, S., Chatterjee, R., Bian, F. &middot; To be submitted to <em>A&amp;A</em></div>
-              <div class="pub-links"><span class="tag">To be submitted</span></div>
-            </div>
-          </article>
-
-          <article class="pub card">
-            <div class="yr">In prep</div>
-            <div>
-              <div class="pub-title">Systematic Search for FU Orionis Outbursts in ZTF: A Multi-Step Photometric Pipeline and New Candidates</div>
-              <div class="pub-meta"><span class="me">Dasgupta, A.</span>, et al. &middot; In preparation</div>
-              <div class="pub-links"><span class="tag">In prep</span></div>
-            </div>
-          </article>
-
-          <article class="pub card">
-            <div class="yr">In prep</div>
-            <div>
-              <div class="pub-title">A JWST&ndash;ALMA View of the FUor HBC 687</div>
-              <div class="pub-meta"><span class="me">Dasgupta, A.</span>, Cieza, L., et al. &middot; In preparation</div>
-              <div class="pub-links"><span class="tag">In prep</span></div>
-            </div>
-          </article>
-
+      <!-- ===================== COMPANIONS ===================== -->
+      <section id="companions" class="block">
+        <h2>02 &middot; Embedded companions and early planet formation</h2>
+        <div class="card">
+          <p>
+            Some companions are still forming inside their disks, often buried in dust and still
+            accreting, which makes them both hard to detect and unusually informative. I use L-band
+            high-contrast imaging with VLT/ERIS to search for these deeply embedded companions, with
+            a focus on systems where gravitational instability could fragment the disk into new
+            objects. The clearest example so far is V960 Mon, where my ERIS pipeline recovered a new
+            companion candidate; that result was the basis of an ESO press release in 2025.
+          </p>
+          <p>
+            A single image is only the start. I combine the imaging with multi-wavelength context,
+            ALMA clumps, scattered-light spirals, and accretion signatures, to judge whether a
+            candidate is a real, bound, forming object rather than a background source or an
+            artefact. Second-epoch astrometry then tests whether a candidate shares the host star's
+            motion, and contrast curves set honest limits on what could still be hiding below the
+            detection threshold.
+          </p>
+          <ul class="bullets">
+            <li>L-band angular differential imaging tuned for deeply embedded, accreting companions.</li>
+            <li>Second-epoch astrometry to test common proper motion and rule out background stars.</li>
+            <li>Photometric calibration and contrast curves that convert non-detections into mass limits.</li>
+            <li>Linking disk clumps and spirals to gravitational-instability fragmentation scenarios.</li>
+          </ul>
+          <div class="pub-links" style="margin-top:16px">
+            <a href="https://doi.org/10.3847/2041-8213/ade996" target="_blank" rel="noopener">V960 Mon companion candidate (ApJL 2025) &#8599;</a>
+            <a href="https://www.eso.org/public/news/eso2513/" target="_blank" rel="noopener">ESO press release &#8599;</a>
+          </div>
         </div>
       </section>
 
-      <!-- ===================== CONTRIBUTING ===================== -->
-      <section id="contrib" class="block">
-        <h2>Contributing author</h2>
-        <div class="publist">
+      <!-- ===================== FUOR ===================== -->
+      <section id="fuor" class="block">
+        <h2>03 &middot; Eruptive young stars and FU Orionis outbursts</h2>
+        <div class="card">
+          <p>
+            FU Orionis stars are young objects that brighten by orders of magnitude when their disks
+            dump material onto the star in a burst of accretion. These outbursts are short-lived and
+            rare, which makes them a direct, time-resolved window onto how disks feed their stars and
+            how the surrounding dust responds to a sudden flood of heat and light. I work on both
+            halves of the problem: finding new outbursts, and dissecting the disks of known ones.
+          </p>
+          <p>
+            To find them, I built a multi-stage photometric pipeline that mines the full ZTF archive
+            through the ALeRCE broker, combining infrared colour selection of disk-bearing young stars
+            with amplitude, light-curve shape, and periodicity tests. It recovers the known ZTF-era
+            outbursts and yields the largest uniformly selected sample of candidates to date, with a
+            real-time monitor that flags new events for rapid follow-up and is designed to carry over
+            to the Rubin/LSST alert stream. To understand what an outburst does to a disk, I am
+            combining JWST and ALMA observations of the FUor HBC 687, tracing the heated dust and gas
+            from the inner disk outward.
+          </p>
+          <ul class="bullets">
+            <li>End-to-end ZTF/ALeRCE search recovering known FUors and the largest uniform candidate sample so far.</li>
+            <li>Real-time alerting for target-of-opportunity follow-up, portable to Rubin/LSST.</li>
+            <li>Spectroscopic classification of new eruptive candidates with NTT/EFOSC2.</li>
+            <li>A combined JWST and ALMA view of the FUor HBC 687, from inner-disk dust to the larger envelope.</li>
+            <li>Accepted VISIR observing to study how outbursts process dust into crystalline silicates.</li>
+          </ul>
+        </div>
+      </section>
 
-          <article class="pub card hover">
-            <div class="yr">2025</div>
-            <div>
-              <div class="pub-title">ODISEA: A Unified Evolutionary Sequence of Planet-Driven Substructures Explaining the Diversity of Disk Morphologies</div>
-              <div class="pub-meta">Orcajo, S., Cieza, L. A., Guilera, O. M., P&eacute;rez, S., et al., incl. <span class="me">Dasgupta, A.</span> &middot; <em>ApJL</em>, 2025</div>
-              <div class="pub-links">
-                <a href="https://doi.org/10.3847/2041-8213/adcd58" target="_blank" rel="noopener">DOI &#8599;</a>
-                <span class="tag">ALMA press release</span>
-              </div>
-            </div>
-          </article>
+      <!-- ===================== INNER ===================== -->
+      <section id="inner" class="block">
+        <h2>04 &middot; Inner disks on sub-au scales</h2>
+        <div class="card">
+          <p>
+            The innermost disk, the few tenths of an au where dust sublimates and where close
+            companions clear cavities, is far too small to image directly even with the largest
+            single telescopes. Optical and infrared interferometry gets there by combining light from
+            separate telescopes to reach milliarcsecond resolution. I analyse VLTI/GRAVITY and CHARA
+            data to constrain the geometry, asymmetry, and temperature structure of inner disks, and
+            to test how close companions sculpt them.
+          </p>
+          <p>
+            Much of this is modeling rather than imaging. I fit the interferometric observables,
+            squared visibilities and closure phases, together with the broadband spectral energy
+            distribution, using temperature-gradient disk models alongside simpler multi-component
+            geometric models. That combination pins down inner-rim radii and temperatures, picks out
+            asymmetries and binarity through closure-phase signals, and lets me study inner-disk
+            structure statistically across a sample of Herbig Ae/Be stars rather than one object at a
+            time.
+          </p>
+          <ul class="bullets">
+            <li>Temperature-gradient disk models fit jointly to near-infrared visibilities and the SED.</li>
+            <li>Multi-component geometric models for star, inner rim, halo, and compact emission.</li>
+            <li>Closure-phase diagnostics of asymmetry and binarity in the inner disk.</li>
+            <li>A statistical, sample-level study of Herbig Ae/Be inner-disk structure.</li>
+          </ul>
+          <div class="pub-links" style="margin-top:16px">
+            <a href="publications.html#inprep">Herbig interferometric survey (in prep) &#8599;</a>
+          </div>
+        </div>
+      </section>
 
-          <article class="pub card hover">
-            <div class="yr">2026</div>
-            <div>
-              <div class="pub-title">SaNDi-SHoP: Searching for Satellites'N'Disks with a Star-Hopping Program. I</div>
-              <div class="pub-meta">Lazzoni, C., Zurlo, A., Desidera, S., Bernardi, A., et al., incl. <span class="me">Dasgupta, A.</span> &middot; <em>arXiv</em>, 2026</div>
-              <div class="pub-links">
-                <a href="https://doi.org/10.48550/arXiv.2603.24796" target="_blank" rel="noopener">DOI &#8599;</a>
-              </div>
-            </div>
-          </article>
+      <!-- ===================== INSTRUMENTS ===================== -->
+      <section id="instruments" class="block">
+        <h2>Instruments and facilities</h2>
+        <div class="card">
+          <p style="margin-bottom:18px">
+            The science depends on matching each question to the facility that can answer it, from
+            millimeter interferometry for cold dust to optical interferometry for the inner au. These
+            are the instruments I work with and what I use each one for.
+          </p>
+          <table class="tbl">
+            <thead>
+              <tr><th>Facility</th><th>Regime</th><th>What I use it for</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>ALMA (Bands 6&ndash;8)</td><td>Millimeter</td><td>Disk masses, sizes, and continuum substructure</td></tr>
+              <tr><td>VLT/ERIS</td><td>Near-infrared</td><td>High-contrast imaging of embedded companions</td></tr>
+              <tr><td>VLTI/GRAVITY</td><td>Near-infrared interferometry</td><td>Inner-disk geometry and temperature structure</td></tr>
+              <tr><td>CHARA (MIRC-X / MYSTIC)</td><td>Near-infrared interferometry</td><td>Sub-au inner-disk resolution and binarity</td></tr>
+              <tr><td>VLT/VISIR</td><td>Mid-infrared</td><td>The 10 &micro;m silicate feature and dust crystallinity in outbursts</td></tr>
+              <tr><td>JWST/MIRI</td><td>Mid-infrared (IFU)</td><td>Dust, ice, and gas diagnostics in FUor disks</td></tr>
+              <tr><td>NTT/EFOSC2</td><td>Optical</td><td>Spectroscopic classification of eruptive candidates</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-          <article class="pub card hover">
-            <div class="yr">2026</div>
-            <div>
-              <div class="pub-title">SaNDi-SHoP: Searching for Satellites'N'Disks with a Star-Hopping Program. II. Spectrophotometric Analysis and Orbital Monitoring of Directly Imaged Companions</div>
-              <div class="pub-meta">Bernardi, A., Zurlo, A., Lazzoni, C., Desidera, S., et al., incl. <span class="me">Dasgupta, A.</span> &middot; Submitted to <em>A&amp;A</em></div>
-              <div class="pub-links"><span class="tag">Submitted</span></div>
-            </div>
-          </article>
-
+      <!-- ===================== METHODS ===================== -->
+      <section id="methods" class="block">
+        <h2>Methods and pipelines</h2>
+        <div class="grid2">
+          <div class="card hover">
+            <h3>High-contrast imaging</h3>
+            <p>Angular and reference differential imaging, PSF subtraction, injection-and-recovery
+               tests, contrast-to-mass conversion, and precise astrometry for companion searches.</p>
+          </div>
+          <div class="card hover">
+            <h3>Optical/IR interferometry</h3>
+            <p>Visibility and closure-phase modeling, temperature-gradient and multi-component fits,
+               photometric consistency checks, and careful propagation of uncertainties.</p>
+          </div>
+          <div class="card hover">
+            <h3>Millimeter imaging</h3>
+            <p>Uniform measurement of disk sizes and fluxes, control of beam and sensitivity effects,
+               and sample-level statistics across complete disk samples.</p>
+          </div>
+          <div class="card hover">
+            <h3>Time-domain surveys</h3>
+            <p>Large-scale archive queries through the ALeRCE broker, light-curve selection and
+               periodicity tests, and real-time alerting built to scale to Rubin/LSST.</p>
+          </div>
+          <div class="card hover">
+            <h3>Spectral-cube analysis</h3>
+            <p>JWST/MIRI IFU reduction, continuum fitting, extinction correction, and dust, ice, and
+               outflow diagnostics for eruptive young stars.</p>
+          </div>
+          <div class="card hover">
+            <h3>Statistical inference</h3>
+            <p>Bayesian parameter estimation with MCMC, bootstrap and Monte Carlo error analysis, and
+               reproducible, instrument-adaptable pipelines with structured, versioned outputs.</p>
+          </div>
         </div>
       </section>
 
