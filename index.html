@@ -14,6 +14,23 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    .hero-photo{position:relative;width:100%;max-width:340px;margin-inline:auto;aspect-ratio:1}
+    .hero-photo .frame{
+      position:absolute;inset:8%;border-radius:50%;overflow:hidden;
+      border:1px solid var(--line);box-shadow:var(--shadow);
+    }
+    .hero-photo .frame img{width:100%;height:100%;object-fit:cover;display:block}
+    /* small disk accent, lower-right */
+    .hero-photo .disk-accent{
+      position:absolute;right:-2%;bottom:-2%;width:38%;aspect-ratio:1;
+      background:var(--bg);border-radius:50%;padding:6px;
+      border:1px solid var(--line);
+    }
+    .hero-photo .disk-accent svg{width:100%;height:100%;display:block}
+    @media (max-width:860px){.hero-photo{max-width:260px}}
+  </style>
 </head>
 
 <body>
@@ -65,43 +82,41 @@
 
           <div class="idlinks">
             <a href="https://github.com/Anuroop1999" target="_blank" rel="noopener">GitHub</a>
-            <a href="#" target="_blank" rel="noopener">NASA ADS</a>
-            <a href="#" target="_blank" rel="noopener">Google Scholar</a>
-            <a href="#" target="_blank" rel="noopener">ORCID</a>
+            <a href="https://ui.adsabs.harvard.edu/search/q=orcid:0009-0009-8115-8910&sort=date%20desc" target="_blank" rel="noopener">NASA ADS</a>
+            <a href="https://scholar.google.com/citations?user=CvVDe3YAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+            <a href="https://orcid.org/0009-0009-8115-8910" target="_blank" rel="noopener">ORCID</a>
           </div>
         </div>
 
         <div class="hero-right">
-          <div class="hero-disk" aria-hidden="true">
-            <svg viewBox="0 0 200 200" role="img">
-              <defs>
-                <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
-                  <stop offset="0%"  stop-color="#f2b85a" stop-opacity="0.55"/>
-                  <stop offset="45%" stop-color="#f2b85a" stop-opacity="0.12"/>
-                  <stop offset="100%" stop-color="#f2b85a" stop-opacity="0"/>
-                </radialGradient>
-              </defs>
-
-              <circle class="glow" cx="100" cy="100" r="95"/>
-
-              <g class="spin">
-                <circle class="ring" cx="100" cy="100" r="88"/>
-                <circle class="ring" cx="100" cy="100" r="80"/>
-                <circle class="ring bright" cx="100" cy="100" r="70"/>
-                <circle class="ring" cx="100" cy="100" r="61"/>
-                <circle class="ring" cx="100" cy="100" r="52"/>
-                <circle class="ring bright" cx="100" cy="100" r="41"/>
-                <circle class="ring" cx="100" cy="100" r="31"/>
-                <circle class="ring" cx="100" cy="100" r="22"/>
-              </g>
-
-              <g class="spin-rev">
-                <circle class="gap" cx="100" cy="100" r="70"/>
-                <circle class="gap" cx="100" cy="100" r="41"/>
-              </g>
-
-              <circle class="core" cx="100" cy="100" r="6"/>
-            </svg>
+          <div class="hero-photo">
+            <div class="frame">
+              <img src="assets/profile.jpg" alt="Anuroop Dasgupta" />
+            </div>
+            <div class="disk-accent" aria-hidden="true">
+              <svg viewBox="0 0 200 200" role="img">
+                <defs>
+                  <radialGradient id="coreGlow" cx="50%" cy="50%" r="50%">
+                    <stop offset="0%"  stop-color="#f2b85a" stop-opacity="0.55"/>
+                    <stop offset="45%" stop-color="#f2b85a" stop-opacity="0.12"/>
+                    <stop offset="100%" stop-color="#f2b85a" stop-opacity="0"/>
+                  </radialGradient>
+                </defs>
+                <circle class="glow" cx="100" cy="100" r="95"/>
+                <g class="spin">
+                  <circle class="ring" cx="100" cy="100" r="86"/>
+                  <circle class="ring bright" cx="100" cy="100" r="68"/>
+                  <circle class="ring" cx="100" cy="100" r="52"/>
+                  <circle class="ring bright" cx="100" cy="100" r="36"/>
+                  <circle class="ring" cx="100" cy="100" r="22"/>
+                </g>
+                <g class="spin-rev">
+                  <circle class="gap" cx="100" cy="100" r="68"/>
+                  <circle class="gap" cx="100" cy="100" r="36"/>
+                </g>
+                <circle class="core" cx="100" cy="100" r="7"/>
+              </svg>
+            </div>
           </div>
         </div>
 
@@ -184,7 +199,8 @@
               <div class="pub-meta"><span class="me">Dasgupta, A.</span>, Weber, P., Maio, F., et al. &middot; ApJL &middot; ERIS/VLT</div>
               <div class="pub-links">
                 <a href="https://doi.org/10.3847/2041-8213/ade996" target="_blank" rel="noopener">DOI &#8599;</a>
-                <span class="tag">ESO Press Release</span>
+                <a href="https://www.eso.org/public/news/eso2513/" target="_blank" rel="noopener">ESO press release &#8599;</a>
+                <span class="tag">Press</span>
               </div>
             </div>
           </article>
