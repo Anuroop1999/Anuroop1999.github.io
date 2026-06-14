@@ -3,15 +3,18 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Software · Anuroop Dasgupta</title>
+  <title>Software &middot; Anuroop Dasgupta</title>
+  <meta name="description" content="Reduction and modeling pipelines built by Anuroop Dasgupta for time-domain surveys, interferometry, high-contrast imaging, and JWST spectral cubes." />
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=STIX+Two+Text:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 </head>
 
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
   <header class="topbar">
     <div class="container topbar-inner">
       <a class="brand" href="index.html">Anuroop Dasgupta</a>
@@ -22,56 +25,166 @@
         <a class="navlink active" href="software.html">Software</a>
         <a class="navlink" href="gallery.html">Gallery</a>
       </nav>
-      <button class="themebtn" id="themeBtn" aria-label="Toggle theme"><span class="themeicon">◐</span></button>
+      <button class="themebtn" id="themeBtn" aria-label="Toggle light and dark theme">
+        <span class="themeicon">&#9680;</span>
+      </button>
     </div>
   </header>
 
-  <main class="page">
+  <main id="main" class="page">
     <div class="container">
+
       <div class="page-head">
-        <h1>Software</h1>
-        <p class="muted">Pipelines, reproducible analysis, and tools I use/build.</p>
-      </div>
-
-      <div class="grid2">
-        <div class="card">
-          <h2>Interferometry modeling</h2>
-          <p>Geometric and temperature-gradient modeling, fit diagnostics, and consistency checks.</p>
-          <ul class="bullets">
-            <li>Visibility + closure-phase workflows</li>
-            <li>Multi-component models (star/disk/companion)</li>
-          </ul>
-          <a class="textlink" href="#" target="_blank" rel="noopener">Repository link →</a>
-        </div>
-
-        <div class="card">
-          <h2>High-contrast imaging</h2>
-          <p>PSF subtraction and contrast pipelines, astrometry + photometric calibration.</p>
-          <ul class="bullets">
-            <li>Injection–recovery contrast curves</li>
-            <li>Multi-epoch co-motion tests</li>
-          </ul>
-          <a class="textlink" href="#" target="_blank" rel="noopener">Repository link →</a>
-        </div>
-
-        <div class="card">
-          <h2>ALMA disk demographics</h2>
-          <p>Uniform size/flux measurement and sample-level statistics.</p>
-          <a class="textlink" href="#" target="_blank" rel="noopener">Repository link →</a>
-        </div>
-
-        <div class="card">
-          <h2>Notes & reproducibility</h2>
-          <p>Structured outputs, versioning, and project templates.</p>
-          <a class="textlink" href="#" target="_blank" rel="noopener">Template →</a>
+        <div class="section-eyebrow">Software</div>
+        <h1>Pipelines built for the data</h1>
+        <p class="muted">
+          Most of my science depends on turning raw observations into clean, reproducible
+          measurements, and that means building the pipeline as carefully as designing the
+          observation. These are the four end-to-end pipelines behind my current projects, written
+          in Python and built to stay reproducible across very different instruments. Repositories
+          are released alongside the papers they belong to.
+        </p>
+        <div class="cta-row" style="margin-top:18px">
+          <a class="btn" href="https://github.com/Anuroop1999" target="_blank" rel="noopener">GitHub</a>
         </div>
       </div>
+
+      <!-- FUOR PIPELINE -->
+      <section class="block">
+        <div class="card">
+          <div class="section-eyebrow">Time-domain &middot; ZTF / ALeRCE</div>
+          <h2 style="font-family:var(--serif);font-size:1.4rem;margin:0 0 10px;border:0;padding:0">
+            FU Orionis discovery pipeline
+          </h2>
+          <p>
+            An end-to-end search that mines the full ZTF archive, around 131 million sources served
+            through the ALeRCE broker, for FU Orionis accretion outbursts. A multi-stage selection
+            cascade runs detection and baseline cuts, WISE infrared colour selection of disk-bearing
+            young stars, amplitude and light-curve morphology criteria, and Lomb&ndash;Scargle vetting.
+            It recovers all known ZTF-era FUors, including Gaia18dvy and Gaia20bdk, and yields 245
+            vetted candidates, the largest uniformly selected FUor sample to date. A real-time weekly
+            monitor issues automated alerts for target-of-opportunity follow-up and is designed to
+            carry over to the Rubin/LSST alert stream.
+          </p>
+          <div class="taglist">
+            <span class="tag">Python</span>
+            <span class="tag">ALeRCE API</span>
+            <span class="tag">Lomb&ndash;Scargle</span>
+            <span class="tag">Real-time alerts</span>
+          </div>
+          <div class="pub-links" style="margin-top:14px">
+            <span class="muted" style="font-size:.85rem">Repository released with the paper</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERFEROMETRY MODEL -->
+      <section class="block">
+        <div class="card">
+          <div class="section-eyebrow">Interferometry &middot; VLTI / CHARA</div>
+          <h2 style="font-family:var(--serif);font-size:1.4rem;margin:0 0 10px;border:0;padding:0">
+            Temperature-gradient disk model
+          </h2>
+          <p>
+            A physically motivated disk model that jointly fits spectrally dispersed near-infrared
+            squared visibilities and the broadband spectral energy distribution. It computes disk
+            visibilities through the Hankel transform of a radial temperature profile, and combines
+            Nelder&ndash;Mead optimisation with emcee MCMC for parameter estimation, with optional halo
+            and compact-component extensions. I use it to constrain inner-rim temperatures, radii, and
+            temperature gradients across the Herbig Ae/Be survey.
+          </p>
+          <div class="taglist">
+            <span class="tag">Python</span>
+            <span class="tag">emcee MCMC</span>
+            <span class="tag">Hankel transform</span>
+            <span class="tag">SED + visibilities</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ERIS HCI PIPELINE -->
+      <section class="block">
+        <div class="card">
+          <div class="section-eyebrow">High-contrast imaging &middot; VLT / ERIS</div>
+          <h2 style="font-family:var(--serif);font-size:1.4rem;margin:0 0 10px;border:0;padding:0">
+            ERIS L&prime;-band imaging pipeline
+          </h2>
+          <p>
+            A dedicated angular differential imaging and PSF-subtraction pipeline with precision
+            astrometric extraction for VLT/ERIS. Applied to V960 Mon, it yielded the detection of a
+            new substellar companion candidate, the result behind my 2025 ApJL paper and the
+            accompanying ESO press release.
+          </p>
+          <div class="taglist">
+            <span class="tag">Python</span>
+            <span class="tag">ADI</span>
+            <span class="tag">PSF subtraction</span>
+            <span class="tag">Sub-pixel astrometry</span>
+          </div>
+          <div class="pub-links" style="margin-top:14px">
+            <a href="https://doi.org/10.3847/2041-8213/ade996" target="_blank" rel="noopener">V960 Mon paper (ApJL 2025) &#8599;</a>
+            <a href="https://www.eso.org/public/news/eso2513/" target="_blank" rel="noopener">ESO press release &#8599;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- JWST MIRI PIPELINE -->
+      <section class="block">
+        <div class="card">
+          <div class="section-eyebrow">Spectroscopy &middot; JWST / MIRI MRS</div>
+          <h2 style="font-family:var(--serif);font-size:1.4rem;margin:0 0 10px;border:0;padding:0">
+            JWST MIRI MRS reduction &amp; analysis
+          </h2>
+          <p>
+            A custom reduction and analysis layer built on the MINDS, jwst, and VIP framework for MIRI
+            MRS data of FUor stars, covering 5 to 28 microns. It resolves IFU-cube recentering
+            failures through peak-finding on median-collapsed cubes, and adds extinction correction,
+            multi-blackbody and spline continuum fitting, and dust, ice, and outflow diagnostics
+            including the 10 micron silicate feature, CO2 ice, [Ne II], and H2.
+          </p>
+          <div class="taglist">
+            <span class="tag">Python</span>
+            <span class="tag">jwst / MINDS / VIP</span>
+            <span class="tag">IFU cubes</span>
+            <span class="tag">Continuum fitting</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- SKILLS STRIP -->
+      <section class="block">
+        <h2>Tools and methods</h2>
+        <div class="grid2">
+          <div class="card">
+            <h3>Languages</h3>
+            <p>Python as the primary language, with Fortran, Mathematica, Bash, and LaTeX, working
+               with Git and a test-driven approach.</p>
+          </div>
+          <div class="card">
+            <h3>Astronomy stack</h3>
+            <p>CASA, PMOIRED, the jwst / MINDS / VIP framework, Astropy, Specutils, emcee, IRAF, DS9,
+               TOPCAT, and Streamlit.</p>
+          </div>
+          <div class="card">
+            <h3>Analysis</h3>
+            <p>Interferometric visibility modeling, Bayesian inference with MCMC, Lomb&ndash;Scargle
+               periodograms, multi-wavelength photometry, spectral line fitting, and bootstrap and
+               Monte Carlo error analysis.</p>
+          </div>
+          <div class="card">
+            <h3>Pipelines and data</h3>
+            <p>End-to-end, instrument-adaptable workflows, large-scale database queries with SQL and
+               the ALeRCE API, and automated real-time alert systems.</p>
+          </div>
+        </div>
+      </section>
 
       <footer class="footer slim">
-        <div>© <span id="year"></span> Anuroop Dasgupta</div>
+        <div>&copy; <span id="year"></span> Anuroop Dasgupta &middot; Santiago, Chile</div>
+        <div><a href="mailto:Anuroop.Dasgupta@eso.org">Anuroop.Dasgupta@eso.org</a></div>
       </footer>
+
     </div>
   </main>
 </body>
 </html>
-
