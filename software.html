@@ -10,6 +10,34 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ERIS pipeline diagram */
+    .flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px 26px;margin-top:8px}
+    .flow-col{display:flex;flex-direction:column;gap:14px}
+    .flow-stage{
+      font-family:var(--mono);font-size:.66rem;text-transform:uppercase;
+      letter-spacing:.16em;color:var(--star);margin-bottom:2px;text-align:center;
+    }
+    .flow-step{
+      border:1px solid var(--line);border-radius:var(--radius-sm);
+      background:var(--bg-2);padding:13px 14px;text-align:center;position:relative;
+    }
+    .flow-step .s-t{font-weight:600;color:var(--ink);font-size:.92rem;line-height:1.2}
+    .flow-step .s-d{color:var(--ink-mute);font-size:.78rem;margin-top:4px;line-height:1.3}
+    /* down-arrow between steps in a column */
+    .flow-step:not(:last-child)::after{
+      content:"";position:absolute;left:50%;bottom:-11px;transform:translateX(-50%);
+      width:1px;height:8px;background:var(--line);
+    }
+    .flow-col .flow-step:not(:last-child)::before{
+      content:"";position:absolute;left:calc(50% - 3px);bottom:-9px;
+      width:6px;height:6px;border-right:1px solid var(--star);
+      border-bottom:1px solid var(--star);transform:rotate(45deg);
+    }
+    @media (max-width:760px){
+      .flow{grid-template-columns:1fr;gap:14px}
+    }
+  </style>
 </head>
 
 <body>
@@ -113,8 +141,31 @@
             A dedicated angular differential imaging and PSF-subtraction pipeline with precision
             astrometric extraction for VLT/ERIS. Applied to V960 Mon, it yielded the detection of a
             new substellar companion candidate, the result behind my 2025 ApJL paper and the
-            accompanying ESO press release.
+            accompanying ESO press release. The pipeline runs in three stages, from raw frames to the
+            final high-SNR image:
           </p>
+
+          <div class="flow" role="img" aria-label="ERIS pipeline: preprocessing, calibration, and final processing stages">
+            <div class="flow-col">
+              <div class="flow-stage">Preprocessing</div>
+              <div class="flow-step"><div class="s-t">Initial frame binning</div><div class="s-d">Group every 10 frames</div></div>
+              <div class="flow-step"><div class="s-t">Master dark creation</div><div class="s-d">Stack dark frames</div></div>
+              <div class="flow-step"><div class="s-t">Dark subtraction</div><div class="s-d">Remove thermal noise</div></div>
+            </div>
+            <div class="flow-col">
+              <div class="flow-stage">Calibration</div>
+              <div class="flow-step"><div class="s-t">Bad pixel correction</div><div class="s-d">Mask pixels over 5&sigma;</div></div>
+              <div class="flow-step"><div class="s-t">PSF centering</div><div class="s-d">Fit 2D Gaussian, crop</div></div>
+              <div class="flow-step"><div class="s-t">Flat fielding</div><div class="s-d">Normalize pixel values</div></div>
+            </div>
+            <div class="flow-col">
+              <div class="flow-stage">Final processing</div>
+              <div class="flow-step"><div class="s-t">Background subtraction</div><div class="s-d">Mask bright sources</div></div>
+              <div class="flow-step"><div class="s-t">Noise pattern removal</div><div class="s-d">Row and column median</div></div>
+              <div class="flow-step"><div class="s-t">Final stacking</div><div class="s-d">Median filter, high SNR</div></div>
+            </div>
+          </div>
+
           <div class="taglist">
             <span class="tag">Python</span>
             <span class="tag">ADI</span>
