@@ -28,6 +28,23 @@
       transition:border-color .2s,transform .2s,background .2s}
     a.stat:hover{border-color:rgba(242,184,90,.45);transform:translateY(-2px)}
     a.stat:hover .num{color:var(--accent)}
+
+    /* prominent role line under the name */
+    .role-line{
+      font-family:var(--mono);font-size:.92rem;line-height:1.5;
+      color:var(--ink);margin:6px 0 22px;
+    }
+    .role-line .role-title{color:var(--accent);font-weight:500}
+    .role-line .role-affil{color:var(--ink-soft)}
+    .hero-lead{
+      font-family:var(--serif);font-size:1.5rem;line-height:1.4;font-weight:500;
+      color:var(--ink);margin:0 0 18px;
+    }
+    .hero-lead strong{color:var(--accent);font-weight:600}
+    .hero-sub{color:var(--ink-soft);font-size:.98rem;line-height:1.6;margin:0 0 24px}
+    .hero-sub a{color:var(--ink);border-bottom:1px solid rgba(242,184,90,.5);text-decoration:none}
+    .hero-sub a:hover{color:var(--accent)}
+    @media (max-width:860px){.hero-lead{font-size:1.28rem}}
   </style>
 </head>
 
@@ -62,16 +79,19 @@
           <div class="kicker">Observational Astrophysics &middot; Planet Formation</div>
           <h1 class="title">Anuroop Dasgupta</h1>
 
-          <p class="lead">
-            I study how <strong>protoplanetary disks</strong> turn into planetary systems, and
-            what observable signatures trace that change.
+          <div class="role-line">
+            <span class="role-title">PhD Candidate in Astrophysics</span><br>
+            <span class="role-affil">European Southern Observatory &amp; Universidad Diego Portales, Santiago, Chile</span>
+          </div>
+
+          <p class="hero-lead">
+            I study how <strong>protoplanetary disks</strong> turn into planetary systems,
+            and what observable signatures trace that change.
           </p>
 
-          <p class="affil">
-            I am a PhD candidate at the European Southern Observatory and Universidad Diego Portales
-            in Santiago, Chile. My work spans the spectrum from millimeter to optical wavelengths,
-            using ALMA, VLT/ERIS, VLTI/GRAVITY, CHARA, and JWST. Alongside the science, I build the
-            reduction and modeling pipelines that the analysis depends on.
+          <p class="hero-sub">
+            My work spans millimeter to optical wavelengths, with ALMA, VLT/ERIS, VLTI/GRAVITY,
+            CHARA, and JWST. <a href="about.html">More about me &rarr;</a>
           </p>
 
           <div class="cta-row">
