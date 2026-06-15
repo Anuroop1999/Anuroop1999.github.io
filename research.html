@@ -13,7 +13,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 
   <style>
-    /* ---- topic chips ---- */
     .chips{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin:26px 0 8px}
     .chip{
       font-family:var(--mono);font-size:.78rem;letter-spacing:.02em;
@@ -23,13 +22,11 @@
     }
     .chip:hover{border-color:rgba(242,184,90,.55);color:var(--accent);background:rgba(242,184,90,.06)}
 
-    /* ---- alternating feature rows ---- */
     .feature{
       display:grid;grid-template-columns:1fr 1fr;gap:46px;align-items:center;
       padding:54px 0;border-top:1px solid var(--line);
     }
     .feature:first-of-type{border-top:none}
-    /* swap order on alternate rows */
     .feature.flip .feat-media{order:2}
     .feature.flip .feat-text{order:1}
 
@@ -51,7 +48,6 @@
       background:var(--accent);opacity:.8;
     }
 
-    /* key papers strip */
     .keypapers{
       margin-top:22px;padding:14px 18px;border-radius:var(--radius);
       background:rgba(242,184,90,.06);border:1px solid rgba(242,184,90,.22);
@@ -65,7 +61,6 @@
     .keypapers a{color:var(--ink);text-decoration:none;border-bottom:1px solid rgba(242,184,90,.5)}
     .keypapers a:hover{color:var(--accent)}
 
-    /* media side */
     .feat-media figure{margin:0}
     .feat-media .frame{
       display:block;border:1px solid var(--line);border-radius:var(--radius);
@@ -91,12 +86,13 @@
     <div class="container topbar-inner">
       <a class="brand" href="index.html">Anuroop Dasgupta</a>
       <nav class="nav">
-        <a class="navlink" href="index.html">About</a>
+        <a class="navlink" href="index.html">Home</a>
         <a class="navlink active" href="research.html">Research</a>
         <a class="navlink" href="publications.html">Publications</a>
         <a class="navlink" href="software.html">Software</a>
         <a class="navlink" href="talks.html">Outreach &amp; Talks</a>
         <a class="navlink" href="gallery.html">Gallery</a>
+        <a class="navlink" href="about.html">About me</a>
       </nav>
       <button class="themebtn" id="themeBtn" aria-label="Toggle light and dark theme">
         <span class="themeicon">&#9680;</span>
@@ -119,7 +115,6 @@
           inner au resolved with optical and infrared interferometry.
         </p>
 
-        <!-- topic chips -->
         <div class="chips">
           <a class="chip" href="#outer">Outer disks</a>
           <a class="chip" href="#companions">Embedded companions</a>
@@ -131,7 +126,7 @@
         </div>
       </div>
 
-      <!-- ===================== 01 OUTER (text left, fig right) ===================== -->
+      <!-- 01 OUTER (text left, fig right) -->
       <section id="outer" class="feature">
         <div class="feat-text">
           <div class="feat-eyebrow">Outer disks &middot; ALMA demographics</div>
@@ -173,7 +168,7 @@
         </div>
       </section>
 
-      <!-- ===================== 02 COMPANIONS (fig left, text right) ===================== -->
+      <!-- 02 COMPANIONS (fig left, text right) -->
       <section id="companions" class="feature flip">
         <div class="feat-media">
           <figure>
@@ -215,7 +210,7 @@
         </div>
       </section>
 
-      <!-- ===================== 03 FUOR (text left, two figs right) ===================== -->
+      <!-- 03 FUOR (text left, two figs right) -->
       <section id="fuor" class="feature">
         <div class="feat-text">
           <div class="feat-eyebrow">Eruptive young stars &middot; ZTF, JWST, ALMA</div>
@@ -257,7 +252,7 @@
         </div>
       </section>
 
-      <!-- ===================== 04 INNER (two figs left, text right) ===================== -->
+      <!-- 04 INNER (two figs left, text right) -->
       <section id="inner" class="feature flip">
         <div class="feat-media dual">
           <figure>
@@ -302,7 +297,7 @@
         </div>
       </section>
 
-      <!-- ===================== 05 GALAXIES (text left, fig right) ===================== -->
+      <!-- 05 GALAXIES (text left, fig right) -->
       <section id="galaxies" class="feature">
         <div class="feat-text">
           <div class="feat-eyebrow">Galaxy chemical abundances &middot; SDSS-IV MaNGA</div>
@@ -340,7 +335,7 @@
         </div>
       </section>
 
-      <!-- ===================== INSTRUMENTS ===================== -->
+      <!-- INSTRUMENTS -->
       <section id="instruments" class="block" style="margin-top:30px">
         <h2>Instruments and facilities</h2>
         <div class="card">
@@ -365,7 +360,7 @@
         </div>
       </section>
 
-      <!-- ===================== METHODS ===================== -->
+      <!-- METHODS -->
       <section id="methods" class="block">
         <h2>Methods and pipelines</h2>
         <div class="grid2">
