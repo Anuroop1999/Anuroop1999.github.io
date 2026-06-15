@@ -4,12 +4,31 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Research &middot; Anuroop Dasgupta</title>
-  <meta name="description" content="Research of Anuroop Dasgupta: protoplanetary disk demographics with ALMA, embedded companions and FU Orionis outbursts, and sub-au inner-disk structure with optical and infrared interferometry." />
+  <meta name="description" content="Research of Anuroop Dasgupta: protoplanetary disk demographics with ALMA, embedded companions and FU Orionis outbursts, sub-au inner-disk structure with optical and infrared interferometry, and galaxy chemical abundances." />
+  <link rel="icon" href="assets/ADG.jpg" />
   <link rel="stylesheet" href="assets/style.css" />
   <script defer src="assets/script.js"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    /* figure beside the text within each research block */
+    .block .card.with-fig{display:grid;grid-template-columns:1fr;gap:0}
+    .fig-wrap{margin-top:20px;padding-top:18px;border-top:1px solid var(--line)}
+    .fig-wrap.dual{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    @media (max-width:640px){.fig-wrap.dual{grid-template-columns:1fr}}
+    figure.research-fig{margin:0}
+    figure.research-fig a{display:block;border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff}
+    figure.research-fig img{width:100%;height:auto;display:block}
+    figure.research-fig figcaption{
+      color:var(--ink-mute);font-size:.8rem;line-height:1.45;margin-top:9px;
+    }
+    figure.research-fig figcaption .cap-label{
+      font-family:var(--mono);font-size:.68rem;text-transform:uppercase;
+      letter-spacing:.06em;color:var(--accent);display:block;margin-bottom:3px;
+    }
+  </style>
 </head>
 
 <body>
@@ -23,6 +42,7 @@
         <a class="navlink active" href="research.html">Research</a>
         <a class="navlink" href="publications.html">Publications</a>
         <a class="navlink" href="software.html">Software</a>
+        <a class="navlink" href="talks.html">Outreach &amp; Talks</a>
         <a class="navlink" href="gallery.html">Gallery</a>
       </nav>
       <button class="themebtn" id="themeBtn" aria-label="Toggle light and dark theme">
@@ -60,6 +80,7 @@
         <a href="#companions">Companions</a>
         <a href="#fuor">Eruptive stars</a>
         <a href="#inner">Inner disks</a>
+        <a href="#galaxies">Galaxy abundances</a>
         <a href="#instruments">Instruments</a>
         <a href="#methods">Methods &amp; pipelines</a>
       </div>
@@ -67,7 +88,7 @@
       <!-- ===================== OUTER ===================== -->
       <section id="outer" class="block">
         <h2>01 &middot; Outer disks and disk demographics</h2>
-        <div class="card">
+        <div class="card with-fig">
           <p>
             The outer disk holds most of the solid mass that planets are eventually built from, so
             its size and structure set the stage for everything that follows. I use high-frequency
@@ -91,6 +112,21 @@
             <li>Links between observed morphology and dust drift, grain growth, and dust traps.</li>
             <li>Demographics that connect to the ODISEA evolutionary sequence of disk substructures.</li>
           </ul>
+
+          <div class="fig-wrap">
+            <figure class="research-fig">
+              <a href="assets/ODISEA.png" target="_blank" rel="noopener">
+                <img src="assets/ODISEA.png" alt="Cumulative disk-size distributions for the Ophiuchus sample" loading="lazy" />
+              </a>
+              <figcaption>
+                <span class="cap-label">Ophiuchus disk sizes &middot; ALMA</span>
+                Cumulative size distributions for the brightest Ophiuchus disks, split by sample.
+                Shaded regions show the uncertainties in the Gaussian fits, with binaries
+                systematically more compact than single stars.
+              </figcaption>
+            </figure>
+          </div>
+
           <div class="pub-links" style="margin-top:16px">
             <a href="https://doi.org/10.3847/2041-8213/adb03c" target="_blank" rel="noopener">Ophiuchus size distributions (ApJL 2025) &#8599;</a>
             <a href="https://doi.org/10.3847/2041-8213/adcd58" target="_blank" rel="noopener">ODISEA substructure sequence (ApJL 2025) &#8599;</a>
@@ -101,7 +137,7 @@
       <!-- ===================== COMPANIONS ===================== -->
       <section id="companions" class="block">
         <h2>02 &middot; Embedded companions and early planet formation</h2>
-        <div class="card">
+        <div class="card with-fig">
           <p>
             Some companions are still forming inside their disks, often buried in dust and still
             accreting, which makes them both hard to detect and unusually informative. I use L-band
@@ -124,6 +160,21 @@
             <li>Photometric calibration and contrast curves that convert non-detections into mass limits.</li>
             <li>Linking disk clumps and spirals to gravitational-instability fragmentation scenarios.</li>
           </ul>
+
+          <div class="fig-wrap">
+            <figure class="research-fig">
+              <a href="assets/V960_MON.png" target="_blank" rel="noopener">
+                <img src="assets/V960_MON.png" alt="VLT/ERIS L-band image of V960 Mon and the companion candidate" loading="lazy" />
+              </a>
+              <figcaption>
+                <span class="cap-label">V960 Mon companion candidate &middot; VLT/ERIS</span>
+                VLT/ERIS L'-band image of V960 Mon. Left: the FUor in its wider environment, marking
+                V960 Mon N and NE. Right: a zoom onto V960 Mon with ALMA Band 6 continuum contours
+                at 3, 4, and 5&sigma;, with the new candidate to the southeast.
+              </figcaption>
+            </figure>
+          </div>
+
           <div class="pub-links" style="margin-top:16px">
             <a href="https://doi.org/10.3847/2041-8213/ade996" target="_blank" rel="noopener">V960 Mon companion candidate (ApJL 2025) &#8599;</a>
             <a href="https://www.eso.org/public/news/eso2513/" target="_blank" rel="noopener">ESO press release &#8599;</a>
@@ -134,7 +185,7 @@
       <!-- ===================== FUOR ===================== -->
       <section id="fuor" class="block">
         <h2>03 &middot; Eruptive young stars and FU Orionis outbursts</h2>
-        <div class="card">
+        <div class="card with-fig">
           <p>
             FU Orionis stars are young objects that brighten by orders of magnitude when their disks
             dump material onto the star in a burst of accretion. These outbursts are short-lived and
@@ -159,13 +210,37 @@
             <li>A combined JWST and ALMA view of the FUor HBC 687, from inner-disk dust to the larger envelope.</li>
             <li>Accepted VISIR observing to study how outbursts process dust into crystalline silicates.</li>
           </ul>
+
+          <div class="fig-wrap dual">
+            <figure class="research-fig">
+              <a href="assets/FUOR_PIPELINE.png" target="_blank" rel="noopener">
+                <img src="assets/FUOR_PIPELINE.png" alt="ZTF/ALeRCE FU Orionis selection pipeline" loading="lazy" />
+              </a>
+              <figcaption>
+                <span class="cap-label">FUor search &middot; ZTF / ALeRCE</span>
+                Selection pipeline: the ZTF archive is reduced through detection, WISE colour,
+                amplitude, and morphology cuts to 245 vetted candidates. Recovery of Gaia18dvy and
+                Gaia20bdk validates the method.
+              </figcaption>
+            </figure>
+            <figure class="research-fig">
+              <a href="assets/HBC_687_JWST.png" target="_blank" rel="noopener">
+                <img src="assets/HBC_687_JWST.png" alt="JWST MIRI MRS continuum-subtracted spectrum of HBC 687" loading="lazy" />
+              </a>
+              <figcaption>
+                <span class="cap-label">HBC 687 &middot; JWST/MIRI MRS</span>
+                Continuum-subtracted MIRI spectrum of the FUor HBC 687, showing the 10 &micro;m
+                silicate complex, a forsterite feature at 11.2 &micro;m, and CO&#8322; ice at 15.2 &micro;m.
+              </figcaption>
+            </figure>
+          </div>
         </div>
       </section>
 
       <!-- ===================== INNER ===================== -->
       <section id="inner" class="block">
         <h2>04 &middot; Inner disks on sub-au scales</h2>
-        <div class="card">
+        <div class="card with-fig">
           <p>
             The innermost disk, the few tenths of an au where dust sublimates and where close
             companions clear cavities, is far too small to image directly even with the largest
@@ -189,8 +264,73 @@
             <li>Closure-phase diagnostics of asymmetry and binarity in the inner disk.</li>
             <li>A statistical, sample-level study of Herbig Ae/Be inner-disk structure.</li>
           </ul>
+
+          <div class="fig-wrap dual">
+            <figure class="research-fig">
+              <a href="assets/HD68695_SED.png" target="_blank" rel="noopener">
+                <img src="assets/HD68695_SED.png" alt="Spectral energy distribution fit for HD 68695" loading="lazy" />
+              </a>
+              <figcaption>
+                <span class="cap-label">HD 68695 &middot; SED</span>
+                Spectral energy distribution: observed photometry (points) against the best-fit
+                temperature-gradient model (solid), decomposed into stellar and disk contributions.
+              </figcaption>
+            </figure>
+            <figure class="research-fig">
+              <a href="assets/HD68695_VIS2.png" target="_blank" rel="noopener">
+                <img src="assets/HD68695_VIS2.png" alt="Squared visibilities for HD 68695" loading="lazy" />
+              </a>
+              <figcaption>
+                <span class="cap-label">HD 68695 &middot; Visibilities</span>
+                Squared visibilities versus spatial frequency, model (points) against data, for the
+                same temperature-gradient fit. Together these constrain the inner-rim radius and
+                temperature.
+              </figcaption>
+            </figure>
+          </div>
+
           <div class="pub-links" style="margin-top:16px">
             <a href="publications.html#inprep">Herbig interferometric survey (in prep) &#8599;</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================== GALAXIES (MaNGA) ===================== -->
+      <section id="galaxies" class="block">
+        <h2>05 &middot; Galaxy chemical abundances</h2>
+        <div class="card with-fig">
+          <p>
+            Alongside the disk work, I have studied chemical abundances in nearby galaxies using
+            integral-field spectroscopy from the SDSS-IV MaNGA survey. Spatially resolved emission-line
+            maps make it possible to measure how metallicity varies across a galaxy rather than as a
+            single global number, which constrains how galaxies build up and redistribute their heavy
+            elements over time.
+          </p>
+          <p>
+            The methods carry over directly from the disk analysis: systematic processing of many
+            spectral cubes, emission-line fitting, signal-to-noise cuts, and uniform pipelines applied
+            across a large sample. It is a different astrophysical setting, galaxies rather than disks,
+            but the same instinct for turning many noisy datasets into clean, comparable measurements.
+          </p>
+          <ul class="bullets">
+            <li>Spatially resolved emission-line maps from MaNGA integral-field spectroscopy.</li>
+            <li>Gas-phase metallicity from the N2 ([N II]/H&alpha;) calibrator, mapped across each galaxy.</li>
+            <li>Uniform spectral-cube processing and signal-to-noise selection across a large sample.</li>
+          </ul>
+
+          <div class="fig-wrap">
+            <figure class="research-fig">
+              <a href="assets/fig01_manga.png" target="_blank" rel="noopener">
+                <img src="assets/fig01_manga.png" alt="MaNGA data products for the galaxy 8563-3704" loading="lazy" />
+              </a>
+              <figcaption>
+                <span class="cap-label">MaNGA &middot; galaxy 8563-3704</span>
+                Data products for a representative galaxy (log M&#9733; = 8.63). From left: DESI Legacy
+                RGB image, H&alpha; flux, gas velocity field, and the [N II]/H&alpha; ratio used as the
+                N2 metallicity calibrator. The ellipse marks 1 effective radius; velocity and ratio
+                maps are restricted to spaxels with H&alpha; S/N &gt; 3.
+              </figcaption>
+            </figure>
           </div>
         </div>
       </section>
