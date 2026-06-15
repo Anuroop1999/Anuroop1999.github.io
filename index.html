@@ -23,6 +23,12 @@
     }
     .hero-photo .frame img{width:100%;height:100%;object-fit:cover;display:block}
     @media (max-width:860px){.hero-photo{max-width:260px}}
+
+    /* make stat cards behave like links */
+    a.stat{text-decoration:none;color:inherit;display:block;
+      transition:border-color .2s,transform .2s,background .2s}
+    a.stat:hover{border-color:rgba(242,184,90,.45);transform:translateY(-2px)}
+    a.stat:hover .num{color:var(--accent)}
   </style>
 </head>
 
@@ -37,6 +43,7 @@
         <a class="navlink" href="research.html">Research</a>
         <a class="navlink" href="publications.html">Publications</a>
         <a class="navlink" href="software.html">Software</a>
+        <a class="navlink" href="talks.html">Outreach &amp; Talks</a>
         <a class="navlink" href="gallery.html">Gallery</a>
       </nav>
       <button class="themebtn" id="themeBtn" aria-label="Toggle light and dark theme">
@@ -96,11 +103,11 @@
     <section class="section" style="padding-top:0">
       <div class="container">
         <div class="stats">
-          <div class="stat"><div class="num">6</div><div class="lab">First-author papers</div></div>
-          <div class="stat"><div class="num">9</div><div class="lab">Total papers</div></div>
-          <div class="stat"><div class="num">7</div><div class="lab">Telescope programs</div></div>
-          <div class="stat"><div class="num">4</div><div class="lab">Pipelines built</div></div>
-          <div class="stat"><div class="num">13</div><div class="lab">Talks &amp; posters</div></div>
+          <a class="stat" href="publications.html#first"><div class="num">6</div><div class="lab">First-author papers</div></a>
+          <a class="stat" href="publications.html"><div class="num">9</div><div class="lab">Total papers</div></a>
+          <a class="stat" href="research.html#instruments"><div class="num">7</div><div class="lab">Telescope programs</div></a>
+          <a class="stat" href="software.html"><div class="num">4</div><div class="lab">Pipelines built</div></a>
+          <a class="stat" href="talks.html"><div class="num">16</div><div class="lab">Talks, posters &amp; seminars</div></a>
         </div>
       </div>
     </section>
